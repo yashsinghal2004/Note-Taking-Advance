@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Heading from '@/components/Heading'
 import Heroes from '@/components/Heroes'
 import React from 'react'
@@ -10,6 +11,7 @@ const page = () => {
         <Heading/>
         <Heroes/>
       </div>
+      <Footer/>
     </div>
   )
 }
