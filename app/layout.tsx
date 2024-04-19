@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,8 +19,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+
+      <body className={inter.className}>
+        <ConvexClientProvider>
+        <ThemeProvider
+        attribute="class"
+        defaultTheme="Dark"
+        enableSystem
+        disableTransitionOnChange
+        storageKey="Notebook-theme-2">
+        {children}
+        </ThemeProvider>
+        </ConvexClientProvider>
+        </body>
     </html>
   );
 }
