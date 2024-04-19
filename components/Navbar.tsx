@@ -4,8 +4,10 @@ import { cn } from '@/lib/utils';
 import React from 'react'
 import { ModeToggle } from './mode-toggle';
 import { useConvexAuth } from 'convex/react';
-import { SignInButton } from '@clerk/clerk-react';
+import { SignInButton, UserButton } from '@clerk/clerk-react';
 import { Button } from './ui/button';
+import { Spinner } from './Spinner';
+import Link from 'next/link';
 
 const Navbar = () => {
   const {isAuthenticated,isLoading}=useConvexAuth();
@@ -23,7 +25,7 @@ const Navbar = () => {
         
         {
         isLoading &&(
-          <p>Loading...</p>
+          <Spinner/>
         )
         }
         {
@@ -39,6 +41,21 @@ const Navbar = () => {
                 Get Notebook for free
               </Button>
             </SignInButton>
+            </>
+          )
+        }
+
+        {
+          isAuthenticated && !isLoading && (
+            <>
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/documents">
+                Enter NoteBook
+              </Link>
+
+            </Button>
+            <UserButton 
+            afterSignOutUrl='/'/>
             </>
           )
         }
