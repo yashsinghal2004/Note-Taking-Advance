@@ -1,10 +1,11 @@
 "use client"
 
-import { ArrowRight, Link } from "lucide-react"
+import { ArrowRight} from "lucide-react"
 import { Button } from "./ui/button"
 import { useConvexAuth } from "convex/react"
 import { Spinner } from "./Spinner"
-import { SignInButton } from "@clerk/clerk-react"
+import { SignInButton, UserButton } from "@clerk/clerk-react"
+import Link from "next/link"
 
 const Heading = () => {
   const {isAuthenticated,isLoading} =useConvexAuth();
@@ -25,16 +26,7 @@ const Heading = () => {
       }
 
 
-      {
-        isAuthenticated && !isLoading &&(
-          <Button asChild>
-            <Link href="/documents">
-        Enter NoteBook
-        <ArrowRight className="h-4 w-4 ml-2"/>
-        </Link>
-      </Button>
-        )
-      }
+      
       {
         !isAuthenticated && !isLoading &&(
           <SignInButton mode="modal">
@@ -44,6 +36,21 @@ const Heading = () => {
             </Button>
 
           </SignInButton>
+        )
+      }
+      {
+        isAuthenticated && !isLoading &&(
+      
+           <>
+            <Button  asChild>
+              <Link href="/documents">
+                Enter NoteBook
+                <ArrowRight className="h-4 w-4 ml-2"/>
+              </Link>
+
+            </Button>
+            
+            </>
         )
       }
       
