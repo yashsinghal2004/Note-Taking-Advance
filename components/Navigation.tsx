@@ -35,6 +35,12 @@ const Navigation = () => {
             navbarRef.current.style.setProperty("width",`calc(100% - ${newWidth}px)`);
          }
     }
+
+    const handleMouseUp=()=>{
+        isResizingRef.current=false;
+        document.removeEventListener("mousemove",handleMouseMove);
+        document.removeEventListener("mouseup",handleMouseUp);
+    }
   return (
     <>
     <aside
