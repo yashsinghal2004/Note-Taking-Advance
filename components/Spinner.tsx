@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import { Loader } from "lucide-react";
+import { Activity, AppWindowMac, Loader, LoaderCircle } from "lucide-react";
 
 const spinnerVariants=cva(
     "text-muted-foreground animate-spin",
