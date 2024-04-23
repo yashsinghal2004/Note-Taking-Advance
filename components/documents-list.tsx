@@ -62,9 +62,20 @@ export const DocumentsList = (
     return ( 
         <>
         <p style={{paddingLeft:level? `${(level*12)+25}px`: undefined}}
-        className={cn("hidden text-sm font-medium")}>
+        className={cn("hidden text-sm font-medium text-muted-foreground/80",
+        expanded && "last:block",
+        level===0 && "hidden")}>
         No Pages inside
         </p>
+        {
+            documents?.map((document)=>(
+                <div>
+                    <Item
+                    id={document.id}
+                    onClick={()=>/>
+                </div>
+            ))
+        }
         </>
      );
 }
