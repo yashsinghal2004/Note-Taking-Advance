@@ -9,9 +9,10 @@ import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Item } from "./Item";
 import { toast } from "sonner";
+import { DocumentsList } from "./documents-list";
 
 const Navigation = () => {
-  const documents=useQuery(api.documents.get);
+
   const create=useMutation(api.documents.create);
 
 
@@ -150,11 +151,7 @@ useEffect(()=>{
 
         </div>
         <div className="mt-4">
-          {documents?.map((document)=>(
-            <p key={document._id}
-            >{document.title}</p>
-          ))
-          }
+          <DocumentsList/>
         </div>
         <div
           onMouseDown={handleMouseDown}
