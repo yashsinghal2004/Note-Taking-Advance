@@ -7,6 +7,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { Item } from "./Item";
 import { cn } from "@/lib/utils";
+import { FileIcon } from "lucide-react";
 
 interface DocumentsListProps{
     parentDocumentId?:Id<"documents">;
@@ -35,6 +36,7 @@ export const DocumentsList = (
                 [documentId]:!prevExpanded[documentId]
             }
         })
+    };
 
         const onRedirect=(documentId:string)=>{
             router.push(`/document/${documentId}`);
@@ -57,7 +59,6 @@ export const DocumentsList = (
             )
         }
 
-    }
 
     return ( 
         <>
@@ -69,10 +70,26 @@ export const DocumentsList = (
         </p>
         {
             documents?.map((document)=>(
-                <div>
+                <div >
                     <Item
-                    id={document.id}
-                    onClick={()=>/>
+                    id={document._id}
+                    onClick={()=>onRedirect(document._id)}
+                    label={document.title}
+                    icon={FileIcon}
+                    documentIcon={document.icon}
+                    active={params.documentId===document._id}
+                    level={level}
+                    onExpand={()=>onExpand(document._id)}
+                    expanded={expanded[document._id]}/>
+
+                    {
+                        expanded[document._id] && (
+                            <DocumentsList
+                            parentDocumentId={document._id}
+                            level={level+1}/>
+                        )
+                    }
+
                 </div>
             ))
         }

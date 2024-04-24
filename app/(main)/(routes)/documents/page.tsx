@@ -14,7 +14,7 @@ const create=useMutation(api.documents.create);
     const {user}=useUser();
 
     const onCreate=()=>{
-        const promise=create({title:"untitled"});
+        const promise=create({title:"Untitled"});
         toast.promise(promise,{
             loading: "Creating a new note...",
             success: "New note created!",
