@@ -11,6 +11,7 @@ import { Item } from "./Item";
 import { toast } from "sonner";
 import { DocumentsList } from "./documents-list";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { TrashBox } from "./trash-box";
 
 const Navigation = () => {
 
@@ -164,7 +165,7 @@ useEffect(()=>{
             <PopoverContent 
             className="p-0 w-72"
             side={isMobile?"bottom":"right"}>
-              <p>Trash Box</p>
+              <TrashBox/>
             </PopoverContent>
           </Popover>
         </div>
