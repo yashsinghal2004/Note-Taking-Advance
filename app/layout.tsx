@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 import { Toaster } from "sonner";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -31,6 +32,7 @@ export default function RootLayout({
         disableTransitionOnChange
         storageKey="Notebook-theme-2">
           <Toaster position="bottom-center"/>
+          <ModalProvider/>
         {children}
         </ThemeProvider>
         </ConvexClientProvider>
