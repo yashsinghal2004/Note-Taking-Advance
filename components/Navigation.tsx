@@ -12,9 +12,10 @@ import { toast } from "sonner";
 import { DocumentsList } from "./documents-list";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { TrashBox } from "./trash-box";
+import { useSearch } from "@/hooks/use-search";
 
 const Navigation = () => {
-
+  const search=useSearch();
   const create=useMutation(api.documents.create);
 
 
@@ -140,7 +141,7 @@ useEffect(()=>{
           label="Search"
           icon={Search}
           isSearch
-          onClick={()=>{}}
+          onClick={search.onOpen}
           />
           <Item 
           label="Settings"
