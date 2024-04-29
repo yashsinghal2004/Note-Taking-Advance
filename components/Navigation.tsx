@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./user-item";
@@ -14,6 +14,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { TrashBox } from "./trash-box";
 import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-settings";
+import {Navbar} from "./document-navbar";
 
 const Navigation = () => {
   const settings=useSettings();
@@ -25,6 +26,8 @@ const Navigation = () => {
 
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width:768px)");
+
+  const params=useParams();
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<"aside">>(null);
@@ -190,7 +193,13 @@ useEffect(()=>{
           isMobile && "left-0 w-full"
         )}
       >
-        <nav className="bg-transparent px-3 py-2 w-full">
+
+        {!!params.documentId?(
+          <Navbar
+          isCollapsed={isCollapsed}
+          onResetWidth={resetWidth}/>
+        ):(
+          <nav className="bg-transparent px-3 py-2 w-full">
           {isCollapsed && (
             <MenuIcon
             onClick={resetWidth}
@@ -200,6 +209,8 @@ useEffect(()=>{
             />
           )}
         </nav>
+        )}
+        
       </div>
     </>
   );
