@@ -17,11 +17,11 @@ export const Navbar = ({
 }:NavbarProps) => {
     const params=useParams();
 
-    const document=useQuery(api.documents.getById,{
+    const documents=useQuery(api.documents.getById,{
         documentId:params.documentId as Id<"documents">,
     });
 
-    if(document===null){
+    if(documents===null){
         return null;
     }
 

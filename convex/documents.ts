@@ -237,13 +237,13 @@ export const getById=query({
     handler:async(ctx,args)=>{
         const identity=await ctx.auth.getUserIdentity();
         
-        const document=await ctx.db.get(args.documentId);
+        const documents=await ctx.db.get(args.documentId);
 
-        if(!document){
+        if(!documents){
             throw new Error("Not Found");
         }
 
-        if(document.ispublished && !document.isArchived){
+        if(documents.ispublished && !documents.isArchived){
             return document;
         }
 
@@ -253,10 +253,10 @@ export const getById=query({
 
         const userId=identity.subject;
 
-        if(document.userId!==userId){
+        if(documents.userId!==userId){
             throw new Error("Unauthorized");
         }
 
-        return document;
+        return documents;
     }
 })
