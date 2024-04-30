@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Doc } from "@/convex/_generated/dataModel";
+import { Skeleton } from "./ui/skeleton";
 
 interface TitleProps{
     initialData: Doc<"documents">;
@@ -20,7 +21,7 @@ interface TitleProps{
     const [isEditing,setIsEditing]=useState(false);
     const inputRef=useRef<HTMLInputElement>(null);
 
-    const [title,setTitle]=useState(initialData.title|| "Untitled");
+    const [title,setTitle]=useState(initialData.title || "Untitled");
 
     const enableInput=()=>{
         setTitle(initialData.title);
@@ -77,5 +78,12 @@ interface TitleProps{
             }
         </div>
      );
+}
+
+Title.Skeleton=function TitleSkeleton(){
+    return(
+        <Skeleton className="h-9 w-20 rounded-md"/>
+
+    )
 }
  
