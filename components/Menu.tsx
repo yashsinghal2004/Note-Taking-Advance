@@ -47,7 +47,7 @@ export const Menu = ({
                 align="end"
                 alignOffset={8}
                 forceMount>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem onClick={onArchive}>
                         <Trash className="h-4 w-4 mr-2"/>
                         Delete
                     </DropdownMenuItem>
