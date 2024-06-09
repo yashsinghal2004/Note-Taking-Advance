@@ -21,6 +21,8 @@ interface DocumentIdPageProps{
     documentId: params.documentId,
   });
 
+  
+
   if(document===undefined){
     return(
     <div>
@@ -45,10 +47,7 @@ interface DocumentIdPageProps{
       <Cover url={document.coverImage}/>
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
         <Toolbar initialData={document}/>
-        <Editor
-        onChange={()=>{}}
-        initialContent={document.content}
-        />
+        <Editor/>
       </div>
     </div>
     

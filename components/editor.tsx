@@ -1,44 +1,43 @@
-"use client";
-
-import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
-import { BlockNoteView, DragHandleMenu, } from "@blocknote/react";
-import {useBlockNote} from "@blocknote/react"
-import "@blocknote/core/style.css";
+import { Block } from "@blocknote/core";
+import "@blocknote/core/fonts/inter.css";
+import { useCreateBlockNote } from "@blocknote/react";
+import { BlockNoteView } from "@blocknote/mantine";
+import "@blocknote/mantine/style.css";
+import { useState } from "react";
 import { useTheme } from "next-themes";
-import { useEdgeStore } from "@/lib/edgestore";
 
-interface EditorProps {
-  onChange: (value: string) => void;
-  initialContent?: string;
-  editable?: boolean;
-}
 
-export const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
-  const { resolvedTheme } = useTheme();
+export const Editor=()=>{
+  const {resolvedTheme}=useTheme();
+  // Stores the document JSON.
+  const [blocks, setBlocks] = useState<Block[]>([]);
 
-  const { edgestore } = useEdgeStore();
-
-  const editor: BlockNoteEditor = useBlockNote({
-    editable, 
-    initialContent: 
-      initialContent
-      ? (JSON.parse(initialContent) as PartialBlock[])
-      : undefined,
-      onEditorContentChange: (editor) => {
-        onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
+  // Creates a new editor instance.
+  const editor = useCreateBlockNote({
+    initialContent: [
+      {
+        type: "paragraph",
+        content: "",
       },
+      
+    ],
 
   });
 
+  // Renders the editor instance and its document JSON.
   return (
-    <div>
-      <BlockNoteView
-        editor={editor}
-        theme={resolvedTheme === "dark" ? "dark" : "light"}
-        
-      ></BlockNoteView>
+    <div className={"wrapper"}>
+      <div className={"item"}>
+        <BlockNoteView
+          editor={editor}
+          onChange={() => {
+            // Saves the document JSON to state.
+            setBlocks(editor.document);
+          }}
+          theme={resolvedTheme=== "dark"? "dark" : "light"}
+        />
+      </div>
+      
     </div>
   );
-};
-
-export default Editor;
+}
