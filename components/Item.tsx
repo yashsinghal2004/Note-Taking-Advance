@@ -45,7 +45,8 @@ export const Item = ({
     )=>{
         event.stopPropagation();
         if(!id)return;
-        const promise=archive({id});
+        const promise=archive({id})
+        .then((documentId)=>router.push("/documents"));
 
         toast.promise(promise,{
             loading: "Archiving note...",
@@ -72,14 +73,15 @@ export const Item = ({
                 onExpand?.();
             }
 
-            //router.push(`/documents/${documentId}`);
+            router.push(`/documents/${documentId}`);
+        })
             toast.promise(promise,{
                 loading: "Creating a new note...",
                 success: "New note created!",
                 error: "Failed to create a new note."
             })
  
-        })
+        
     }
 
     const ChevronIcon=expanded? ChevronDown: ChevronRight;
