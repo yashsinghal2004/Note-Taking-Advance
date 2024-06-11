@@ -70,8 +70,9 @@ export const DocumentsList = (
         </p>
         {
             documents?.map((document)=>(
-                <div >
+                <div key={document._id}  >
                     <Item
+                    
                     id={document._id}
                     onClick={()=>onRedirect(document._id)}
                     label={document.title}

@@ -8,6 +8,7 @@ import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useMutation, useQuery } from "convex/react";
 import dynamic from "next/dynamic";
+
 import { useMemo } from "react";
 
 
@@ -16,7 +17,7 @@ interface DocumentIdPageProps{
     documentId:Id<"documents">;
   }
 }
- const DocumentIdPage = ({
+const DocumentIdPage = ({
   params
  }:DocumentIdPageProps) => {
   const Editor=useMemo(()=>dynamic(()=>import("@/components/editor"),{ssr:false}),[]);
@@ -59,7 +60,7 @@ interface DocumentIdPageProps{
       <Cover preview url={document.coverImage}/>
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
         <Toolbar preview initialData={document}/>
-        <Editor 
+        <Editor
         editable={false}
         onChange={onChange}
         initialContent={document.content}
@@ -69,6 +70,8 @@ interface DocumentIdPageProps{
     
   )
 }
+
 export default DocumentIdPage;
+
 
 

@@ -9,9 +9,10 @@ import { useTheme } from "next-themes";
 import { useEdgeStore } from "@/lib/edgestore";
 
 interface EditorProps {
+  editable?: boolean;
   onChange: (value: string) => void;
   initialContent?: string;
-  editable?: boolean;
+  
 }
 
 const Editor=({
@@ -67,4 +68,5 @@ const Editor=({
     </div>
   );
 }
+
 export default Editor;

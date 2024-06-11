@@ -67,7 +67,6 @@ export const Publish = ({ initialData }: PublishProps) => {
       setCopied(false);
     }, 1000);
   };
-  console.log(initialData);
 
   return (
     <Popover>
