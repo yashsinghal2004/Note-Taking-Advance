@@ -1,7 +1,6 @@
 "use client"
 
 import { Cover } from "@/components/cover";
-import { Publish } from "@/components/publish";
 
 import { Toolbar } from "@/components/toolbar";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -47,7 +46,8 @@ interface DocumentIdPageProps{
           <Skeleton className="h-4 w-[60%]" />
         </div>
       </div>
-    </div>)
+    </div>
+    )
   }
 
   if(document===null){
@@ -56,13 +56,13 @@ interface DocumentIdPageProps{
 
   return (
     <div className="pb-40">
-      <Cover url={document.coverImage}/>
+      <Cover preview url={document.coverImage}/>
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
-        <Toolbar initialData={document}/>
+        <Toolbar preview initialData={document}/>
         <Editor 
-        onChange={onChange} 
-        initialContent={document.content} 
-
+        editable={false}
+        onChange={onChange}
+        initialContent={document.content}
         />
       </div>
     </div>
