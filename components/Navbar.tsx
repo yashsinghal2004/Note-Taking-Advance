@@ -15,9 +15,12 @@ const Navbar = () => {
 
 
   return (
+
     
     <div className={cn("z-50 bg-background top-0 fixed items-center w-full p-6 dark:bg-[#1F1F1F]",scroll && 
     "border-b shadow-sm")}>
+      <h1 className='absolute font-bold text-2xl pl-2'>
+        <Link href="/">NoteBook</Link></h1>
       
 
       <div className='md:ml-auto md:justify-end justify-between w-full items-center flex
