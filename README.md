@@ -2,10 +2,6 @@
 
 A modern, full-featured note-taking application inspired by Notion, built with Next.js 14, TypeScript, and Convex. Experience seamless document creation, real-time collaboration, and beautiful UI with dark/light mode support.
 
-![NoteBook Preview](https://img.shields.io/badge/Next.js-14.2.1-black?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
-![Convex](https://img.shields.io/badge/Convex-1.11.2-purple?style=for-the-badge)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css)
 
 ## ✨ Features
 
@@ -17,19 +13,19 @@ A modern, full-featured note-taking application inspired by Notion, built with N
 - **Search Functionality**: Quick document search across your workspace
 - **Trash Management**: Soft delete with restore capabilities
 
-### 🎨 User Experience
+### User Experience
 - **Dark/Light Mode**: Seamless theme switching with system preference detection
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Modern UI**: Built with Radix UI components and Tailwind CSS
 - **Smooth Animations**: Polished interactions with Framer Motion
 - **Keyboard Shortcuts**: Efficient navigation and editing
 
-### 🔐 Authentication & Security
+### Authentication & Security
 - **Clerk Integration**: Secure authentication with social login options
 - **User Management**: Personal workspaces with user-specific data
 - **Authorization**: Document-level access control
 
-### 📤 Publishing & Sharing
+### Publishing & Sharing
 - **Public Publishing**: Share documents with public URLs
 - **Preview Mode**: Read-only view for published documents
 - **Custom Icons**: Personalize documents with emoji icons
@@ -40,14 +36,13 @@ A modern, full-featured note-taking application inspired by Notion, built with N
 - **File Handling**: Secure file storage and retrieval
 - **Image Optimization**: Automatic image processing and optimization
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Next.js 14** - React framework with App Router
 - **TypeScript** - Type-safe development
 - **Tailwind CSS** - Utility-first CSS framework
 - **Radix UI** - Accessible component primitives
-- **BlockNote** - Rich text editor
 - **Lucide React** - Beautiful icon library
 - **Zustand** - State management
 - **React Hook Form** - Form handling
@@ -56,11 +51,6 @@ A modern, full-featured note-taking application inspired by Notion, built with N
 - **Convex** - Real-time backend-as-a-service
 - **EdgeStore** - File storage and CDN
 - **Clerk** - Authentication and user management
-
-### Development Tools
-- **ESLint** - Code linting
-- **PostCSS** - CSS processing
-- **TypeScript** - Static type checking
 
 ## 🚀 Getting Started
 
