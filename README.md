@@ -1,9 +1,9 @@
-# 📝 NoteBook - Advanced Note-Taking Application
+# NoteBook - Advanced Note-Taking Application
 
 A modern, full-featured note-taking application inspired by Notion, built with Next.js 14, TypeScript, and Convex. Experience seamless document creation, real-time collaboration, and beautiful UI with dark/light mode support.
 
 
-## ✨ Features
+## Features
 
 ###  Core Functionality
 - **Rich Text Editor**: Powered by BlockNote with WYSIWYG editing capabilities
